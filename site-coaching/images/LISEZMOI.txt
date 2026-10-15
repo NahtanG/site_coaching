@@ -1,9 +1,0 @@
-Dépose ici les vraies photos, avec exactement ces noms :
-
-  hero.jpg      -> fond du grand titre de la page d'accueil (paysage, ex. 1920 x 1080)
-  portrait.jpg  -> bloc « À propos » (portrait, visage plutôt à droite de l'image)
-  seance.jpg    -> bandeau « Ta première séance » et haut de la page des offres (paysage)
-
-Déjà fournis : favicon.svg (icône de l'onglet) et partage.png (aperçu Instagram / WhatsApp).
-Tant qu'une photo est absente, un fond bleu s'affiche à la place.
-Conseil : photos compressées (moins de 400 Ko chacune) pour que le site reste rapide sur téléphone.

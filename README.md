@@ -1,4 +1,4 @@
-# Site vitrine – Cyril Bonnet d'Hulster, coaching privé
+# Site vitrine – CBDH Coaching (Cyril Bonnet d'Hulster)
 
 Site statique (HTML + CSS), sans outil de build.
 
@@ -13,18 +13,22 @@ site-coaching/
 ├── css/
 │   └── style.css     Feuille de style commune (conçue mobile d'abord)
 ├── js/
-│   └── site.js       Effet d'échelle des encadrés au défilement (facultatif)
+│   └── site.js       FAQ, effet d'échelle des encadrés, lecture de la vidéo
 ├── images/
 │   ├── favicon.svg   Icône de l'onglet
 │   ├── partage.png   Image d'aperçu pour Instagram / WhatsApp
-│   └── LISEZMOI.txt  Noms des photos à déposer (hero.jpg, portrait.jpg, seance.jpg)
+│   ├── hero.jpg      Photo d'accueil (traîneau)
+│   ├── portrait.jpg  Photo « À propos » (football américain)
+│   └── seance.jpg    Image d'aperçu de la vidéo et fond de la page des offres
+├── videos/
+│   └── seance.mp4    Vidéo « En séance » (720×1280, sans son, ~1,6 Mo)
 └── README.md
 ```
 
-## À remplacer avant de publier
+## Reste à compléter
 
-Tout est listé dans `RECAP-A-CONFIRMER-AVEC-CYRIL.md` (fourni à côté de ce dossier).
-Dans le code, chaque point est repéré par un commentaire `À CONFIRMER AVEC CYRIL` : une recherche sur cette phrase dans l'éditeur les retrouve tous.
+- `conditions-generales.html`, article 8 : choisir un médiateur de la consommation (repéré par la classe `a-completer`).
+- Déclarer « CBDH Coaching » comme nom commercial de l'entreprise (guichet des formalités).
 
 ## Publier gratuitement
 
@@ -36,4 +40,4 @@ Dans le code, chaque point est repéré par un commentaire `À CONFIRMER AVEC CY
 Les encadrés grossissent jusqu'à leur taille pleine au centre de l'écran et rétrécissent légèrement vers les bords.
 Réglages dans `js/site.js` : `REDUCTION` (force de l'effet, 0.08 = 8 %) et `ZONE_PLEINE` (zone centrale à taille pleine).
 L'effet est désactivé automatiquement pour les personnes qui ont réduit les animations dans leur système.
-Pour le retirer, supprimer la ligne `<script src="js/site.js">` des deux pages.
+Pour le retirer, supprimer la ligne `<script src="js/site.js">` des pages.

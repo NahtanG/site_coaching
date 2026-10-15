@@ -1,58 +1,38 @@
-# Récap : ce qu'il faut confirmer ou changer avec Cyril
+# Récap : ce qui reste à faire
 
-Dans le code, chaque point est repéré par un commentaire `À CONFIRMER AVEC CYRIL`.
-Astuce : dans ton éditeur, recherche cette phrase pour tout retrouver.
+Site en ligne : https://cbdhcoaching.vercel.app
 
-## 1. Avant toute mise en ligne (bloquant)
+## 1. Dernier élément à compléter sur le site
 
-**Remettre le lien « Mentions légales » dans le pied de page** de `index.html` et `offre.html` (un commentaire `À RÉACTIVER` indique l'endroit). Il est retiré pour l'instant, mais les mentions légales sont obligatoires sur tout site public et doivent être accessibles depuis toutes les pages.
+- **Médiateur de la consommation** : `conditions-generales.html`, article 8 (passage surligné).
+  Cyril doit s'inscrire auprès d'un organisme de médiation de la consommation, puis on met son nom, son adresse et son site.
 
-| Point | Où | Valeur actuelle |
-|---|---|---|
-| Micro-entreprise créée, **SIREN** obtenu | `mentions-legales.html` | « À compléter » |
-| Adresse, téléphone, e-mail pro | `mentions-legales.html` | « À compléter » |
-| **Diplôme** d'éducateur sportif et **n° de carte professionnelle** (déclaration EAPS) | `mentions-legales.html`, bloc « À propos » de `index.html` | « À compléter » |
-| **Assurance RC Pro** (nom de l'assureur) | `mentions-legales.html` | « À compléter » |
-| Hébergeur retenu (nom + adresse) : GitHub Pages ou Vercel | `mentions-legales.html` | « À compléter » |
+## 2. À régler côté Calendly
 
-À demander aussi : son contrat de coach en salle contient-il une clause d'exclusivité ou une interdiction de démarcher les adhérents ?
-Ne pas citer le nom de la salle sur le site.
+- Mettre le **délai minimum d'annulation et de report à 24 h**, pour que Calendly corresponde aux conditions de vente (article 5).
+- Vérifier que le paiement Stripe et l'e-mail de confirmation contiennent bien le lien d'annulation.
 
-## 2. Liens et coordonnées
+## 3. À faire relire (je ne suis pas juriste)
 
-| Point | Où | Valeur actuelle |
-|---|---|---|
-| Lien Calendly général | `index.html`, `offre.html` | `https://calendly.com/VOTRE-LIEN` |
-| Lien Calendly **séance découverte** (créer un événement dédié) | `index.html`, `offre.html` | `https://calendly.com/VOTRE-LIEN/seance-decouverte` |
-| Téléphone | barre du bas, JSON-LD | `+33600000000` |
-| WhatsApp (format `33612345678`, sans + ni 0) | barre du bas | `33600000000` |
-| Nom de domaine du site | balises `og:` et JSON-LD (`VOTRE-DOMAINE.fr`) | à choisir |
+- Les **conditions de vente** : annulation 24 h, rétractation (séances à date fixe sans rétractation, packs 14 jours).
+- Mention « TVA non applicable, art. 293 B du CGI » : valable pour une micro-entreprise en franchise de TVA.
+- **Contrat en salle** : pas encore signé. À revoir quand il le sera (exclusivité, démarchage, loyer éventuel pour entraîner des clients en salle).
 
-## 3. Contenu à valider
+## 4. À vérifier
 
-- **Séance découverte** : prix (30 € = exemple), durée (1 h), contenu (bilan + premier entraînement ?).
-- **Les 3 offres** : prix (50 € / 200 € / 350 € = exemples), durée de validité du pack 5 séances, rythme du mois intensif.
-- **Lieu des séances** : salle (laquelle ?), domicile, extérieur ? Mettre à jour la FAQ et « Informations pratiques ».
-- **Matériel à apporter** (FAQ).
-- **Politique d'annulation** : délai exact (24 h = exemple).
-- **Modes de paiement** à afficher (FAQ), à n'indiquer qu'une fois la micro-entreprise créée.
-- **Parcours** : durée exacte chez les pompiers, statut (volontaire ou professionnel), spécialités d'entraînement. Rester factuel.
-- **Profils « C'est pour toi si… »** : lui correspondent-ils ? Ajouter par exemple « préparation aux tests physiques » si pertinent.
-- Demande-t-il un **questionnaire de santé** avant la première séance ? À mentionner dans la FAQ si oui.
+- Le numéro WhatsApp est-il bien le 06 40 97 75 07 ?
+- **Vercel gratuit (Hobby)** : réservé à un usage non commercial. Le site vend des séances, donc plan payant ou autre hébergeur à prévoir au lancement.
 
-## 4. Photos à lui demander (dossier `images/`)
+## 5. Stripe
 
-| Fichier | Idée de prise de vue | Format |
-|---|---|---|
-| `hero.jpg` | En action (exercice, matériel), plan large avec de l'espace | Paysage, ex. 1920 × 1080 |
-| `portrait.jpg` | Portrait en tenue, visage plutôt à droite de l'image | Portrait |
-| `seance.jpg` | Séance de coaching (avec l'accord de la personne) ou extérieur | Paysage |
+- Libellé de relevé bancaire conseillé : `CYRIL BONNET COACH`.
 
-Photos compressées (moins de 400 Ko chacune). Les fichiers `favicon.svg` et `partage.png` sont déjà fournis.
+## 6. Photos (plus tard)
 
-## 5. Après la mise en ligne
+Dossier `images/` : `hero.jpg` (en action, paysage), `portrait.jpg` (portrait, visage plutôt à droite), `seance.jpg` (séance ou extérieur, paysage). Moins de 400 Ko chacune, avec l'accord des personnes visibles.
 
-- Créer la fiche **Google Business Profile** avec le même nom et le même téléphone que sur le site.
-- Mettre le lien du site dans la bio Instagram.
-- Collecter ses 3 premiers avis (Google ou Instagram) pour ajouter une section témoignages.
-- Option RGPD : héberger les polices soi-même pour ne plus passer par Google Fonts (puis retirer la phrase correspondante dans les mentions légales).
+## 7. Après la mise en ligne
+
+- Fiche **Google Business Profile** avec le même nom et le même téléphone que sur le site.
+- Lien du site dans la bio Instagram.
+- Premiers avis clients pour ajouter une section témoignages (avec leur accord).

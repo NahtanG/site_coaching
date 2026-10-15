@@ -287,3 +287,8 @@ p, dd { text-wrap: pretty; }
 .bouton.contour:hover { background: rgba(31,78,90,.08); }
 .offre .bouton.contour { color: var(--bleu-fonce); }
 .note { color: var(--texte-doux); font-size: .95rem; text-align: center; margin: 1.5rem auto 0; max-width: 36rem; }
+
+
+/* ===== Lieu des séances sur les offres ===== */
+.offre-lieu { display: flex; align-items: center; gap: .45rem; margin: 0; padding: 0 1.4rem 1.1rem; font-weight: 700; font-size: .92rem; color: var(--bleu); }
+.offre-lieu svg { flex: none; }

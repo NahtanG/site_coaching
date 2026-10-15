@@ -1,0 +1,294 @@
+/* ===== Variables ===== */
+:root {
+  --bleu: #1f4e5a;
+  --bleu-fonce: #11353e;
+  --fond: #f3f6f6;
+  --blanc: #ffffff;
+  --texte: #1d2b30;
+  --texte-doux: #4c5f66;
+  --ambre: #c98a2b;
+  --ligne: #d9e2e4;
+  --barre-h: 70px;
+  --entete-h: 56px;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ===== Base (mobile d'abord) ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img, svg, video { max-width: 100%; }
+body {
+  margin: 0; font-family: var(--sans); font-size: 1.0625rem; line-height: 1.65;
+  color: var(--texte); background: var(--fond); overflow-wrap: break-word;
+  padding-bottom: calc(var(--barre-h) + env(safe-area-inset-bottom, 0px));
+}
+h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--bleu-fonce); margin: 0 0 .6em; font-weight: 600; }
+h1 { font-size: clamp(1.9rem, 7vw, 2.3rem); }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1em; max-width: 58ch; }
+a { color: var(--bleu); }
+:focus-visible { outline: 3px solid var(--ambre); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.conteneur { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 max(1.25rem, env(safe-area-inset-right, 0px)) 0 max(1.25rem, env(safe-area-inset-left, 0px)); }
+.bloc { padding: 2.5rem 0; }
+
+/* ===== En-tête ===== */
+.entete {
+  position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.92);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid var(--ligne);
+}
+.entete .conteneur { display: flex; align-items: center; justify-content: space-between; min-height: var(--entete-h); }
+.marque { font-family: var(--serif); font-weight: 600; color: var(--bleu-fonce); text-decoration: none; font-size: 1.05rem; }
+.nav a { margin-left: 1.1rem; text-decoration: none; color: var(--texte-doux); font-weight: 500; font-size: .95rem; padding-bottom: 2px; }
+.nav a[aria-current="page"] { color: var(--bleu); border-bottom: 2px solid var(--ambre); }
+
+/* ===== Photo en arrière-plan (fonctionne sans photo) ===== */
+.sur-fond { position: relative; isolation: isolate; overflow: hidden; color: #eaf1f2;
+  background:
+    radial-gradient(120% 90% at 85% 10%, rgba(201,138,43,.28) 0%, transparent 55%),
+    linear-gradient(155deg, var(--bleu) 0%, var(--bleu-fonce) 100%); }
+.fond { position: absolute; inset: 0; z-index: -2; margin: 0; }
+.fond img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sur-fond::after { /* voile de lisibilité au-dessus de la photo */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(17,53,62,.55) 0%, rgba(17,53,62,.82) 100%);
+}
+.sur-fond h1, .sur-fond h2, .sur-fond h3 { color: var(--blanc); }
+.sur-fond p { color: #d6e3e6; }
+
+/* ===== Hero ===== */
+.hero {
+  min-height: calc(100vh - var(--entete-h) - var(--barre-h));
+  min-height: calc(100svh - var(--entete-h) - var(--barre-h));
+  display: flex; align-items: center; padding: 3rem 0;
+}
+.hero .conteneur { padding-top: 1rem; padding-bottom: 1rem; }
+.hero p { font-size: 1.12rem; }
+.hero.court { min-height: 0; padding: 4rem 0 3.5rem; }
+
+/* ===== Boutons ===== */
+.bouton {
+  display: inline-block; padding: .85rem 1.5rem; min-height: 48px; line-height: 1.3; border-radius: 28px; text-align: center;
+  background: var(--ambre); color: #1b1305; font-weight: 700; text-decoration: none; border: 2px solid var(--ambre);
+  transition: background .2s, transform .2s;
+}
+.bouton:hover { background: #d99a3a; }
+.bouton.clair { background: transparent; color: var(--blanc); border-color: rgba(255,255,255,.55); }
+.bouton.clair:hover { background: rgba(255,255,255,.12); }
+.groupe-boutons { display: flex; flex-direction: column; gap: .75rem; margin-top: 1.6rem; max-width: 22rem; }
+
+/* ===== Panneau (bloc avec photo derrière le texte) ===== */
+.panneau { border-radius: 16px; padding: 2.25rem 1.5rem; min-height: 340px; display: flex; align-items: center; }
+.panneau .contenu { max-width: 34rem; }
+.panneau .fond img { object-position: 70% 30%; }
+
+/* ===== Cartes : échelle pilotée par le défilement (voir js/site.js) ===== */
+.carte { position: relative; transform: scale(calc(var(--echelle, 1) * var(--base, 1))); will-change: transform; }
+
+/* ===== Mosaïque ===== */
+.mosaique { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.tuile { background: var(--blanc); border: 1px solid var(--ligne); border-radius: 14px; padding: 1.5rem; }
+.tuile p { margin: 0; color: var(--texte-doux); }
+.tuile.sombre { background: var(--bleu); border-color: var(--bleu); }
+.tuile.sombre h3 { color: var(--blanc); }
+.tuile.sombre p { color: #cfe0e4; }
+.tuile.ambre { background: var(--ambre); border-color: var(--ambre); }
+.tuile.ambre h3, .tuile.ambre p { color: #1b1305; }
+
+/* ===== Pastilles ===== */
+.pastilles { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem; }
+.pastilles span { padding: .5rem 1rem; border-radius: 999px; background: var(--blanc); border: 1px solid var(--ligne); font-weight: 500; font-size: .98rem; }
+
+/* ===== Offres (encadrés type affiche) ===== */
+.offres { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+.offre { background: var(--blanc); border: 2px solid var(--bleu); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+.offre-tete { background: var(--bleu); padding: 1.1rem 1.4rem; }
+.offre-tete h3 { color: var(--blanc); margin: 0; }
+.offre-tete p { margin: .15rem 0 0; color: #c7d8dc; font-size: .95rem; }
+.offre-prix { padding: 1.25rem 1.4rem .5rem; font-family: var(--serif); font-size: 2.8rem; line-height: 1; color: var(--bleu-fonce); }
+.offre-prix small { display: block; line-height: 1.4; font-family: var(--sans); font-size: .95rem; color: var(--texte-doux); margin-top: .5rem; }
+.offre-detail { padding: .5rem 1.4rem 1.25rem; flex: 1; color: var(--texte-doux); }
+.offre-detail p { margin: 0; }
+.offre .bouton { margin: 0 1.4rem 1.4rem; }
+.offre.vedette { border-color: var(--ambre); box-shadow: 0 0 0 4px rgba(201,138,43,.22); }
+.offre.vedette .offre-tete { background: var(--ambre); }
+.offre.vedette .offre-tete h3 { color: #1b1305; }
+.offre.vedette .offre-tete p { color: #3a2a0c; }
+
+/* ===== Étapes (vraie séquence) ===== */
+.etapes { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.etape { background: var(--blanc); border: 1px solid var(--ligne); border-radius: 14px; padding: 1.25rem 1.4rem; }
+.etape .num { display: inline-flex; width: 2rem; height: 2rem; align-items: center; justify-content: center; border-radius: 50%; background: var(--bleu); color: var(--blanc); font-weight: 700; margin-bottom: .6rem; }
+.etape p { margin: 0; color: var(--texte-doux); }
+
+/* ===== Barre de contact fixe ===== */
+.barre-contact {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  background: rgba(17,53,62,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-top: 3px solid var(--ambre); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.barre-contact .conteneur { display: grid; grid-template-columns: repeat(4, 1fr); gap: .35rem; padding: .4rem max(.6rem, env(safe-area-inset-right, 0px)) .4rem max(.6rem, env(safe-area-inset-left, 0px)); }
+.barre-contact a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; min-height: 52px;
+  color: var(--blanc); text-decoration: none; font-weight: 600; font-size: .72rem; line-height: 1.1; border-radius: 12px;
+}
+.barre-contact svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.barre-contact a.principal { background: var(--ambre); color: #1b1305; }
+.barre-contact a:not(.principal):hover { background: rgba(255,255,255,.12); }
+
+/* ===== Écrans plus larges ===== */
+@media (min-width: 760px) {
+  body { font-size: 1.125rem; }
+  h1 { font-size: clamp(2.4rem, 4.6vw, 3.4rem); }
+  h2 { font-size: 2.2rem; }
+  .bloc { padding: 4rem 0; }
+  .groupe-boutons { flex-direction: row; max-width: none; }
+  .panneau { padding: 3.5rem; min-height: 420px; }
+  .panneau .fond img { object-position: 80% 25%; }
+  .panneau.photo-droite::after { background: linear-gradient(90deg, rgba(17,53,62,.94) 0%, rgba(17,53,62,.78) 45%, rgba(17,53,62,.15) 100%); }
+  .mosaique { grid-template-columns: repeat(6, 1fr); }
+  .mosaique .l4 { grid-column: span 4; }
+  .mosaique .l2 { grid-column: span 2; }
+  .offres { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .offre.vedette { --base: 1.04; }
+  .etapes { grid-template-columns: repeat(4, 1fr); }
+  .barre-contact .conteneur { max-width: 720px; gap: 1rem; }
+}
+
+
+/* ===== Identité : monogramme ===== */
+.marque { display: inline-flex; align-items: center; gap: .55rem; font-size: .95rem; }
+.monogramme {
+  display: inline-flex; align-items: center; justify-content: center; padding: .25rem .5rem; border-radius: 8px;
+  background: var(--bleu); color: var(--ambre); font-size: .8rem; letter-spacing: .02em;
+}
+@media (max-width: 429px) { .monogramme { display: none; } .nav a { margin-left: .8rem; } }
+
+/* ===== Pastilles sur fond sombre ===== */
+.sur-fond .pastilles span { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.3); color: var(--blanc); }
+
+/* ===== Séance découverte ===== */
+.decouverte { border-radius: 16px; padding: 2rem 1.5rem; display: grid; gap: 1.25rem; }
+.decouverte h2 { margin-bottom: .3em; }
+.decouverte p { margin: 0; }
+.decouverte-prix { font-family: var(--serif); font-size: 3rem; line-height: 1; color: var(--ambre); }
+.decouverte-prix small { display: block; font-family: var(--sans); font-size: .95rem; color: #c7d8dc; margin-top: .4rem; }
+.decouverte .groupe-boutons { margin-top: 1rem; }
+
+/* ===== FAQ (s'ouvre au toucher) ===== */
+.faq { margin-top: 1.5rem; display: grid; gap: .75rem; }
+.faq details { background: var(--blanc); border: 1px solid var(--ligne); border-radius: 12px; }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 1rem 3rem 1rem 1.25rem; font-weight: 700; color: var(--bleu-fonce); position: relative; min-height: 48px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--ambre); font-weight: 700; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { margin: 0; padding: 0 1.25rem 1.1rem; color: var(--texte-doux); }
+
+/* ===== Pied de page et pages de texte ===== */
+.pied { padding: 1.5rem 1.25rem 2rem; text-align: center; color: var(--texte-doux); font-size: .9rem; }
+.pied a { color: var(--texte-doux); }
+.texte-long { padding-top: 2.5rem; }
+.texte-long h1 { font-size: 1.9rem; }
+.texte-long h2 { font-size: 1.25rem; margin-top: 1.8em; }
+.texte-long .a-completer { background: #fff3d6; padding: 0 .3em; border-radius: 4px; }
+
+@media (min-width: 760px) {
+  .decouverte { grid-template-columns: 1.6fr 1fr; align-items: center; padding: 3rem; gap: 2rem; }
+  .decouverte-cote { text-align: right; justify-self: end; }
+  .decouverte .groupe-boutons { justify-content: flex-end; }
+}
+
+
+/* ===== Écrans peu hauts (téléphone en paysage) ===== */
+@media (max-height: 500px) {
+  :root { --barre-h: 56px; }
+  .entete { position: static; }
+  .hero, .hero.court { min-height: 0; padding: 1.75rem 0; }
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
+  .hero p { font-size: 1rem; }
+  .bloc { padding: 2rem 0; }
+  .panneau, .decouverte { min-height: 0; padding: 1.75rem; }
+  .groupe-boutons { flex-direction: row; flex-wrap: wrap; margin-top: 1rem; }
+  .barre-contact a { flex-direction: row; gap: .4rem; min-height: 40px; font-size: .85rem; }
+  .barre-contact svg { width: 18px; height: 18px; }
+}
+
+
+/* ===== Hero centré ===== */
+.hero .conteneur { text-align: center; }
+.hero h1, .hero p { margin-left: auto; margin-right: auto; }
+.hero h1 { max-width: 20ch; }
+.hero p { max-width: 36rem; }
+.hero .groupe-boutons { align-items: stretch; margin-left: auto; margin-right: auto; width: 100%; max-width: 22rem; }
+.hero .pastilles { justify-content: center; }
+@media (min-width: 760px) {
+  .hero h1 { max-width: 28ch; }
+  .hero .groupe-boutons { flex-direction: row; justify-content: center; max-width: none; }
+}
+@media (max-height: 500px) {
+  .hero h1 { max-width: none; }
+  .hero .groupe-boutons { flex-direction: row; justify-content: center; max-width: none; }
+}
+
+/* ===== Variété typographique ===== */
+.icone { width: 30px; height: 30px; display: block; margin-bottom: .7rem; fill: none; stroke: var(--ambre); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tuile.ambre .icone { stroke: #1b1305; }
+.tuile h3 { font-size: 1.3rem; }
+
+.phrase {
+  font-family: var(--serif); font-weight: 600; text-align: center; color: var(--bleu-fonce);
+  font-size: clamp(1.5rem, 5.6vw, 2.5rem); line-height: 1.25; max-width: 26ch; margin: 0 auto;
+}
+.phrase::before { content: ""; display: block; width: 48px; height: 4px; border-radius: 2px; background: var(--ambre); margin: 0 auto 1.25rem; }
+
+.chapeau { font-size: 1.2rem; line-height: 1.5; color: var(--blanc) !important; }
+.chiffres { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 1.25rem 2rem; margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.25); }
+.chiffres div { margin: 0; }
+.chiffres dt { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; line-height: 1.1; color: var(--blanc); }
+.chiffres dd { margin: .2rem 0 0; font-size: .85rem; line-height: 1.3; color: #c7d8dc; }
+@media (max-width: 400px) { .chiffres { gap: 1rem; } .chiffres dt { font-size: 1.6rem; } }
+
+/* ===== Lignes équilibrées (évite un mot seul en fin de titre) ===== */
+h1, h2, h3, .phrase { text-wrap: balance; }
+p, dd { text-wrap: pretty; }
+
+/* ===== Panneaux centrés (À propos, séance découverte, infos pratiques) ===== */
+.panneau:not(.decouverte) { justify-content: center; text-align: center; }
+.panneau:not(.decouverte) .contenu { width: 100%; max-width: 36rem; margin: 0 auto; }
+.panneau:not(.decouverte) .contenu p { margin-left: auto; margin-right: auto; }
+.panneau:not(.decouverte) .groupe-boutons { align-items: stretch; width: 100%; max-width: 22rem; margin-left: auto; margin-right: auto; }
+.panneau:not(.decouverte) .pastilles,
+.panneau:not(.decouverte) .chiffres { justify-content: center; }
+.panneau .fond img { object-position: 50% 30%; }
+@media (min-width: 760px) {
+  .panneau.photo-droite::after { background: linear-gradient(180deg, rgba(17,53,62,.6) 0%, rgba(17,53,62,.85) 100%); }
+  .panneau:not(.decouverte) .groupe-boutons { flex-direction: row; justify-content: center; max-width: none; }
+  .panneau .fond img { object-position: 50% 30%; }
+}
+@media (max-height: 500px) {
+  .panneau:not(.decouverte) .groupe-boutons { flex-direction: row; justify-content: center; max-width: none; }
+}
+
+@media (min-width: 760px) {
+  .panneau:not(.decouverte) .contenu { max-width: 44rem; }
+  .panneau:not(.decouverte) .groupe-boutons .bouton,
+  .hero .groupe-boutons .bouton { white-space: nowrap; }
+}
+
+
+/* ===== Bouton sur fond clair + note ===== */
+.bouton.contour { background: transparent; color: var(--bleu-fonce); border-color: var(--bleu); }
+.bouton.contour:hover { background: rgba(31,78,90,.08); }
+.offre .bouton.contour { color: var(--bleu-fonce); }
+.note { color: var(--texte-doux); font-size: .95rem; text-align: center; margin: 1.5rem auto 0; max-width: 36rem; }
+
+
+/* ===== Lieu des séances sur les offres ===== */
+.offre-lieu { display: flex; align-items: center; gap: .45rem; margin: 0; padding: 0 1.4rem 1.1rem; font-weight: 700; font-size: .92rem; color: var(--bleu); }
+.offre-lieu svg { flex: none; }

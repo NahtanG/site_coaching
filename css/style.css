@@ -292,3 +292,7 @@ p, dd { text-wrap: pretty; }
 /* ===== Lieu des séances sur les offres ===== */
 .offre-lieu { display: flex; align-items: center; gap: .45rem; margin: 0; padding: 0 1.4rem 1.1rem; font-weight: 700; font-size: .92rem; color: var(--bleu); }
 .offre-lieu svg { flex: none; }
+
+
+/* ===== Sous-ligne du titre principal ===== */
+.h1-lieu { display: block; margin-top: .75rem; font-family: var(--sans); font-weight: 500; font-size: clamp(1.05rem, 4.2vw, 1.35rem); line-height: 1.35; color: var(--ambre); }

@@ -6,9 +6,10 @@ Site statique (HTML + CSS), sans outil de build.
 
 ```
 site-coaching/
-├── index.html        Page principale (accroche, pour qui, à propos, séance découverte, FAQ)
-├── offre.html        Page des offres (séance découverte, tarifs, étapes, infos pratiques)
-├── mentions-legales.html  Mentions légales (à compléter avant publication)
+├── index.html        Page principale (accroche, pour qui, à propos, FAQ)
+├── offre.html        Page des offres (séance unique, packs, étapes, infos pratiques)
+├── mentions-legales.html  Mentions légales
+├── conditions-generales.html  Conditions de vente (modèle à faire relire)
 ├── css/
 │   └── style.css     Feuille de style commune (conçue mobile d'abord)
 ├── js/

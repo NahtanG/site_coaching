@@ -280,3 +280,10 @@ p, dd { text-wrap: pretty; }
   .panneau:not(.decouverte) .groupe-boutons .bouton,
   .hero .groupe-boutons .bouton { white-space: nowrap; }
 }
+
+
+/* ===== Bouton sur fond clair + note ===== */
+.bouton.contour { background: transparent; color: var(--bleu-fonce); border-color: var(--bleu); }
+.bouton.contour:hover { background: rgba(31,78,90,.08); }
+.offre .bouton.contour { color: var(--bleu-fonce); }
+.note { color: var(--texte-doux); font-size: .95rem; text-align: center; margin: 1.5rem auto 0; max-width: 36rem; }

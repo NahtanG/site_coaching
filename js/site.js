@@ -1,3 +1,14 @@
+/* FAQ : une seule question ouverte à la fois (en complément de l'attribut name="faq" des <details>) */
+(function () {
+  var details = [].slice.call(document.querySelectorAll('.faq details'));
+  details.forEach(function (el) {
+    el.addEventListener('toggle', function () {
+      if (!el.open) return;
+      details.forEach(function (autre) { if (autre !== el) autre.open = false; });
+    });
+  });
+})();
+
 /* Effet d'échelle au défilement : les encadrés (.carte) sont à taille pleine
    au centre de l'écran et rétrécissent légèrement vers les bords. */
 (function () {

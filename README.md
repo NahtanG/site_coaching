@@ -7,7 +7,7 @@ Site statique (HTML + CSS), sans outil de build.
 ```
 site-coaching/
 ├── index.html        Page principale (accroche, pour qui, à propos, FAQ)
-├── offre.html        Page des offres (séance unique, packs, étapes, infos pratiques)
+├── offre.html        Page des offres (programme personnalisé, séance unique, packs, étapes, infos pratiques)
 ├── mentions-legales.html  Mentions légales
 ├── conditions-generales.html  Conditions de vente (modèle à faire relire)
 ├── css/
@@ -27,7 +27,6 @@ site-coaching/
 
 ## Reste à compléter
 
-- `conditions-generales.html`, article 8 : choisir un médiateur de la consommation (repéré par la classe `a-completer`).
 - Déclarer « CBDH Coaching » comme nom commercial de l'entreprise (guichet des formalités).
 
 ## Publier gratuitement

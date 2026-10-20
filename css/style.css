@@ -152,7 +152,7 @@ a { color: var(--bleu); }
   .mosaique { grid-template-columns: repeat(6, 1fr); }
   .mosaique .l4 { grid-column: span 4; }
   .mosaique .l2 { grid-column: span 2; }
-  .offres { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+  .offres { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .offre.vedette { --base: 1.04; }
   .etapes { grid-template-columns: repeat(4, 1fr); }
   .barre-contact .conteneur { max-width: 720px; gap: 1rem; }
@@ -323,3 +323,5 @@ p, dd { text-wrap: pretty; }
 .phrase::before { background: linear-gradient(90deg, #ff8a1f, #ee4b22); }
 .entete { border-bottom: 3px solid #ee4b22; }
 .bouton.clair, .bouton.contour { box-shadow: none; }
+
+@media (min-width: 1000px) { .offres { grid-template-columns: repeat(4, 1fr); } }

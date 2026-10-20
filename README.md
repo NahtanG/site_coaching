@@ -19,9 +19,11 @@ site-coaching/
 │   ├── partage.png   Image d'aperçu pour Instagram / WhatsApp
 │   ├── hero.jpg      Photo d'accueil (traîneau)
 │   ├── portrait.jpg  Photo « À propos » (football américain)
-│   └── seance.jpg    Image d'aperçu de la vidéo et fond de la page des offres
+│   ├── seance.jpg    Aperçu de la vidéo 1 et fond de la page des offres
+│   └── seance-2.jpg  Aperçu de la vidéo 2
 ├── videos/
-│   └── seance.mp4    Vidéo « En séance » (720×1280, sans son, ~1,6 Mo)
+│   ├── seance.mp4    Vidéo « En séance » n° 1 (720×1280, sans son)
+│   └── seance-2.mp4  Vidéo « En séance » n° 2
 └── README.md
 ```
 
@@ -40,3 +42,7 @@ Les encadrés grossissent jusqu'à leur taille pleine au centre de l'écran et r
 Réglages dans `js/site.js` : `REDUCTION` (force de l'effet, 0.08 = 8 %) et `ZONE_PLEINE` (zone centrale à taille pleine).
 L'effet est désactivé automatiquement pour les personnes qui ont réduit les animations dans leur système.
 Pour le retirer, supprimer la ligne `<script src="js/site.js">` des pages.
+
+## Ajouter une vidéo
+
+Dans `index.html`, section « En séance », copier un bloc `<div class="video-carte carte">` et changer les deux chemins (`videos/seance-3.mp4`, `images/seance-3.jpg`). Le carrousel (téléphone) et l'affichage côte à côte (ordinateur) s'adaptent tout seuls. Format conseillé : vertical 720×1280, sans son, moins de 2 Mo.

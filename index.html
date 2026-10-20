@@ -82,6 +82,11 @@
             <h3>Repartir</h3>
             <p>Tu t'entraînes déjà mais tu n'avances plus&nbsp;? On ajuste ton programme.</p>
           </div>
+          <div class="tuile sombre carte l6 tuile-contact">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></svg>
+            <h3>Des questions&nbsp;?</h3>
+            <p>N'hésite pas à me contacter via <a href="https://wa.me/33640977507" target="_blank" rel="noopener">WhatsApp</a> ou <a href="https://www.instagram.com/_cbdh_/" target="_blank" rel="noopener">Instagram</a> pour faire le point sur tes objectifs, tes disponibilités et tes contraintes.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -92,15 +97,21 @@
       </div>
     </section>
 
-    <section class="bloc" id="en-seance" style="padding-top:0" aria-label="En séance">
+    <section class="bloc" id="en-seance" aria-label="En séance">
       <div class="conteneur">
-        <div class="video-carte carte">
-          <video muted loop playsinline preload="metadata" poster="images/seance.jpg" width="720" height="1280" aria-label="Extraits d'une séance de coaching en extérieur">
-            <source src="videos/seance.mp4" type="video/mp4">
-          </video>
-          <div class="video-legende">
-            <h2>En séance</h2>
-            <p>Du renforcement, du cardio et de la préparation physique, en extérieur ou chez toi.</p>
+        <h2 class="titre-centre">En séance</h2>
+        <p class="intro-centre">Du renforcement, du cardio et de la préparation physique, en extérieur, en salle ou chez toi.</p>
+        <!-- Pour ajouter une vidéo : copier un bloc <div class="video-carte carte"> ci-dessous, avec videos/seance-3.mp4 et images/seance-3.jpg. Le carrousel s'adapte tout seul. -->
+        <div class="videos" id="videos">
+          <div class="video-carte carte">
+            <video muted loop playsinline preload="metadata" poster="images/seance.jpg" width="720" height="1280" aria-label="Séance de coaching en extérieur">
+              <source src="videos/seance.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-carte carte">
+            <video muted loop playsinline preload="metadata" poster="images/seance-2.jpg" width="720" height="1280" aria-label="Séance de coaching en salle">
+              <source src="videos/seance-2.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -112,10 +123,10 @@
           <figure class="fond"><img src="images/portrait.jpg" alt="Cyril, joueur de football américain, en action" loading="lazy" onerror="this.remove()"></figure>
           <div class="contenu">
             <h2>À propos</h2>
-            <p class="chapeau">Je m'appelle Cyril. J'ai passé 5 ans comme pompier de Paris, puis je suis devenu coach sportif.</p>
-            <p>Joueur de football américain, je propose aujourd'hui un accompagnement privé, adapté à ton niveau et à ton objectif.</p>
+            <p class="chapeau">Je m'appelle Cyril, je suis coach sportif diplômé.</p>
+            <p>Avec 6 ans d'expérience comme pompier de Paris et en tant que joueur de football américain de haut niveau, mon objectif est d'accompagner chacun dans sa progression et l'atteinte de ses objectifs, dans un cadre motivant et sécurisé.</p>
             <dl class="chiffres">
-              <div><dt>5 ans</dt><dd>pompier de Paris</dd></div>
+              <div><dt>6 ans</dt><dd>pompier de Paris</dd></div>
               <div><dt>CQP IF</dt><dd>coach qualifié</dd></div>
               <div><dt>Foot US</dt><dd>joueur de football américain</dd></div>
             </dl>
